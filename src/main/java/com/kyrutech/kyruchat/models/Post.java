@@ -1,5 +1,7 @@
 package com.kyrutech.kyruchat.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -16,9 +18,10 @@ public class Post {
     String content;
 
     @Column(nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     LocalDateTime time;
 
-    @OneToMany
+    @ManyToOne
     Post parent;
 
     public int getId() {
