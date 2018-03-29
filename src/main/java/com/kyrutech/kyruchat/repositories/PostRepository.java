@@ -19,4 +19,6 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
     List<Post> findByParentIsNull();
     List<Post> findByParentIsNull(Sort sort);
     List<Post> findByParentIsNull(Pageable page);
+
+    Long countByParent(Post Parent);
 }

@@ -9,20 +9,22 @@ import java.time.LocalDateTime;
 public class Post {
     @GeneratedValue
     @Id
-    int id;
+    private int id;
 
     @Column(nullable = false)
-    String username;
+    private String username;
 
     @Column(nullable = false)
-    String content;
+    private String content;
 
     @Column(nullable = false)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    LocalDateTime time;
+    private LocalDateTime time;
 
     @ManyToOne
-    Post parent;
+    private Post parent;
+
+    private long replyCount;
 
     public int getId() {
         return id;
@@ -64,6 +66,14 @@ public class Post {
         this.parent = parent;
     }
 
+    public long getReplyCount() {
+        return replyCount;
+    }
+
+    public void setReplyCount(long replyCount) {
+        this.replyCount = replyCount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -72,19 +82,21 @@ public class Post {
         Post post = (Post) o;
 
         if (id != post.id) return false;
-        if (!username.equals(post.username)) return false;
-        if (!content.equals(post.content)) return false;
-        if (!time.equals(post.time)) return false;
+        if (replyCount != post.replyCount) return false;
+        if (username != null ? !username.equals(post.username) : post.username != null) return false;
+        if (content != null ? !content.equals(post.content) : post.content != null) return false;
+        if (time != null ? !time.equals(post.time) : post.time != null) return false;
         return parent != null ? parent.equals(post.parent) : post.parent == null;
     }
 
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + username.hashCode();
-        result = 31 * result + content.hashCode();
-        result = 31 * result + time.hashCode();
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (content != null ? content.hashCode() : 0);
+        result = 31 * result + (time != null ? time.hashCode() : 0);
         result = 31 * result + (parent != null ? parent.hashCode() : 0);
+        result = 31 * result + (int) (replyCount ^ (replyCount >>> 32));
         return result;
     }
 }

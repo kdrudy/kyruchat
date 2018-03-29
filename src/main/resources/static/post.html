@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
@@ -14,8 +14,11 @@
     <body>
         <div class="container">
             <h1><a href="/">kyruchat</a></h1>
+            <div class="row">
+                <!--Original Post-->
+                <div class="col-md-12" id="post"></div>
+            </div>
             <div class="row border border-dark my-2 p-2 posting-panel">
-               <!-- Input -->
                 <form class="col-md-12" >
                     <div class="form-row">
                         <div class="col-md-2">
@@ -25,7 +28,7 @@
                             <input type="text" class="form-control" placeholder="Message" id="content"/>
                         </div>
                         <div class="col-md-2">
-                            <button type="button" class="btn btn-dark btn-block" id="send">Send</button>
+                            <button type="button" class="btn btn-dark btn-block" id="sendReply">Send</button>
                         </div>
                     </div>
                 </form>
@@ -34,17 +37,12 @@
                 <!-- Display -->
                 <div class="col-md-12" id="chatcontent"></div>
             </div>
-            <div class="row">
-                <!-- Page Links -->
-                <div class="col-md-12 text-center" id="pagelinks"></div>
-            </div>
         </div>
-
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="js/kyruchat.js"></script>
+        <script src="js/kyruchatreplies.js"></script>
     </body>
 </html>

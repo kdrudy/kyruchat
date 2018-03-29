@@ -1,0 +1,10 @@
+a:link, a:active, a:visited {
+    color: darkred;
+}
+a:hover {
+    color: crimson;
+}
+
+.posting-panel {
+    background-color: darkgrey;
+}

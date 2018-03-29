@@ -12,7 +12,7 @@ function showMessages() {
             $.each(data, function(index, post) {
                 chatcontent.append(
                 '<div class="row border border-dark my-2 p-2">' +
-                    '<div class="col-md-12 font-weight-bold">' + post.time + '</div>' +
+                    '<div class="col-md-12 font-weight-bold"><a href="post.html?id=' + post.id + '">' + post.time + '</a></div>' +
                     '<div class="col-md-2 font-italic">' + post.username + '</div><div class="col-md-10">' + post.content + '</div>' +
                 '</div>');
             });
