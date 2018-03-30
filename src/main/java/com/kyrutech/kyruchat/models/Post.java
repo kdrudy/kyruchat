@@ -1,6 +1,7 @@
 package com.kyrutech.kyruchat.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -24,6 +25,8 @@ public class Post {
     @ManyToOne
     private Post parent;
 
+    @Transient
+    @JsonInclude
     private long replyCount;
 
     public int getId() {
