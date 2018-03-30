@@ -1,3 +1,7 @@
+body {
+    background-color: dimgrey;
+}
+
 a:link, a:active, a:visited {
     color: darkred;
 }
@@ -7,4 +11,13 @@ a:hover {
 
 .posting-panel {
     background-color: darkgrey;
+}
+
+.post-panel {
+    background-color: white;
+}
+
+.pell-content {
+    background-color: #FFF;
+    height: auto;
 }

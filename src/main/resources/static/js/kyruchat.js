@@ -11,7 +11,8 @@ function showMessages() {
             chatcontent.empty();
             $.each(data, function(index, post) {
                 chatcontent.append(
-                '<div class="row border border-dark my-2 p-2">' +
+//                '<div class="row border border-dark my-2 p-2 post-panel">' +
+                '<div class="row my-2 p-2 post-panel">' +
                     '<div class="col-md-10 font-weight-bold"><a href="post.html?id=' + post.id + '">' + post.time + '</a></div><div class="col-md-2 text-right">Replies: ' + post.replyCount + '</div>' +
                     '<div class="col-md-2 font-italic">' + post.username + '</div><div class="col-md-10">' + post.content + '</div>' +
                 '</div>');
@@ -50,6 +51,7 @@ setInterval(showMessages, 3000);
 
 function submitMessage() {
     var username = $("#username").val();
+//    var content = $(".pell-content").html();
     var content = $("#content").val();
 
     console.log(username + ":" + content);
