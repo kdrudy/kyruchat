@@ -51,12 +51,23 @@ public class PostController {
 
     @RequestMapping(value = "/post", method = RequestMethod.GET)
     public Post getPost(Integer id) {
-        return posts.findById(id).orElse(null);
+
+        Post p = posts.findById(id).orElse(null);
+        if(p!=null) {
+            p.setReplyCount(posts.countByParent(p));
+        }
+        return p;
     }
 
     @RequestMapping(value = "/replies", method = RequestMethod.GET)
     public List<Post> getReplies(Integer id) {
         Post post = posts.findById(id).orElse(null);
-        return posts.findByParent(post, new Sort(Sort.Direction.DESC, "time"));
+        List<Post> replyList =  posts.findByParent(post, new Sort(Sort.Direction.DESC, "time"));
+
+        for(Post p : replyList) {
+            p.setReplyCount(posts.countByParent(p));
+        }
+
+        return replyList;
     }
 }
