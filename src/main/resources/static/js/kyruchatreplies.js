@@ -87,7 +87,7 @@ $("#content").keyup(function(event) {
     }
 });
 
-$("#sendReplies").click(function() {
+$("#sendReply").click(function() {
     submitReply();
 });
 

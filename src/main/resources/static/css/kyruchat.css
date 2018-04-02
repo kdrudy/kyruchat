@@ -1,5 +1,5 @@
 body {
-    background-color: dimgrey;
+    background: linear-gradient(to right, rgba(0,0,0,0), dimgrey, rgba(0,0,0,0));
 }
 
 a:link, a:active, a:visited {
@@ -10,7 +10,7 @@ a:hover {
 }
 
 .posting-panel {
-    background-color: darkgrey;
+    background: linear-gradient(to right, darkgrey, white, darkgrey);
 }
 
 .post-panel {
