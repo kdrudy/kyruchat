@@ -120,3 +120,5 @@ nbactions.xml
 
 # End of https://www.gitignore.io/api/java,maven,netbeans,intellij
 test.mv.db
+.DS_Store
+test.trace.db
