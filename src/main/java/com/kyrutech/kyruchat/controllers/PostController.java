@@ -22,9 +22,9 @@ public class PostController {
     public List<Post> getPosts(Integer page, Integer size) {
         List<Post> postList = new ArrayList<>();
         if(page != null && size != null) {
-            postList = posts.findByParentIsNull(PageRequest.of(page, size, new Sort(Sort.Direction.DESC, "time")));
+            postList = posts.findByParentIsNull(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "time")));
         } else {
-            postList = posts.findByParentIsNull(PageRequest.of(0, 10, new Sort(Sort.Direction.DESC, "time")));
+            postList = posts.findByParentIsNull(PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "time")));
         }
 
         for(Post p : postList) {
@@ -63,7 +63,7 @@ public class PostController {
     @RequestMapping(value = "/replies", method = RequestMethod.GET)
     public List<Post> getReplies(Integer id) {
         Post post = posts.findById(id).orElse(null);
-        List<Post> replyList =  posts.findByParent(post, new Sort(Sort.Direction.DESC, "time"));
+        List<Post> replyList =  posts.findByParent(post, Sort.by(Sort.Direction.DESC, "time"));
 
         for(Post p : replyList) {
             p.setReplyCount(posts.countByParent(p));

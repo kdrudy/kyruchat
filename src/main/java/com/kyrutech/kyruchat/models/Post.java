@@ -2,8 +2,8 @@ package com.kyrutech.kyruchat.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
